@@ -6,7 +6,7 @@
 
 通过NAS搜索最优width，depth和resolution(input)，在不改变网络结构的情况下，实现很好地acc和flops的权衡。
 
-<img src="/Users/lizhiwei/Documents/paper_notes/ConNets/image-20200324224148283.png" alt="image-20200324224148283" style="zoom:50%;" />
+<img src="./image-20200324224148283.png" alt="image-20200324224148283" style="zoom:50%;" />
 
 ### 核心要点
 
@@ -32,18 +32,18 @@ Step2：fix $\alpha, \beta, \gamma$， 然后优化 $\phi$
 
 ### 结论
 
-<img src="/Users/lizhiwei/Documents/paper_notes/ConNets/image-20200324221859781.png" alt="image-20200324221859781" style="zoom:40%;" /><img src="/Users/lizhiwei/Documents/paper_notes/ConNets/image-20200324222754211.png" alt="image-20200324222754211" style="zoom:40%;" />
+<img src="./image-20200324221859781.png" alt="image-20200324221859781" style="zoom:40%;" /><img src="./image-20200324222754211.png" alt="image-20200324222754211" style="zoom:40%;" />
 
 1. 增加 width, depth, resolution可以提高acc，但是增加过多没有效果
 2. 为了追求更好的acc，需要更好的width，depth和resolution的均衡
 
 ### 成果
 
-<img src="/Users/lizhiwei/Documents/paper_notes/ConNets/image-20200324223807087.png" alt="image-20200324223807087" style="zoom:80%;" />
+<img src="./image-20200324223807087.png" alt="image-20200324223807087" style="zoom:80%;" />
 
-<img src="/Users/lizhiwei/Documents/paper_notes/ConNets/image-20200324223853088.png" alt="image-20200324223853088" style="zoom:80%;" />
+<img src="./image-20200324223853088.png" alt="image-20200324223853088" style="zoom:80%;" />
 
-![image-20200324223924028](/Users/lizhiwei/Documents/paper_notes/ConNets/image-20200324223924028.png)
+![image-20200324223924028](./image-20200324223924028.png)
 
 
 
