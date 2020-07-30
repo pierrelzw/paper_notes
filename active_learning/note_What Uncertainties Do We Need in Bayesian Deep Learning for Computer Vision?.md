@@ -6,7 +6,7 @@
 
 ## 简介
 
-![image-20200730191542498](/Users/lizhiwei/Documents/notes.papers/active_learning/image-20200730191542498.png)
+![image-20200730191542498](https://tva1.sinaimg.cn/large/007S8ZIlly1gh97vw2yndj31520kadm2.jpg)
 
 我们把uncertainty分为两种：aleatoric uncertainty(i.e. data uncertainty) 和 epidemic uncertainty(i.e. model uncertainty)。从上图可以看出
 
@@ -18,7 +18,7 @@
 
 ## 本文贡献
 
-![image-20200730105539691](/Users/lizhiwei/Documents/notes.papers/active_learning/image-20200730105539691.png)
+![image-20200730105539691](https://tva1.sinaimg.cn/large/007S8ZIlly1gh97vwr8tjj31bs0ek78n.jpg)
 
 
 
