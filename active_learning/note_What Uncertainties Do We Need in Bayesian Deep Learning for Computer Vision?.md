@@ -86,7 +86,7 @@
 
 [AI科技评论：学界 | 模型可解释性差？你考虑了各种不确定性了吗？](https://mp.weixin.qq.com/s?__biz=MzA5ODEzMjIyMA==&mid=2247496311&idx=3&sn=3e7f1df007926e6fba1124630046be76&source=41#wechat_redirect)
 
-[CSDN:What Uncertainties Do We Need in Bayesian Deep Learning for Computer Vision? 计算机视觉用于贝叶斯深度学习的不确定性]([https://blog.csdn.net/weixin_39779106/article/details/78968982#1%E5%B0%86%E5%BC%82%E6%96%B9%E5%B7%AE%E5%81%B6%E7%84%B6%E4%B8%8D%E7%A1%AE%E5%AE%9A%E6%80%A7%E5%92%8C%E8%AE%A4%E7%9F%A5%E4%B8%8D%E7%A1%AE%E5%AE%9A%E6%80%A7%E7%9B%B8%E7%BB%93%E5%90%88](https://blog.csdn.net/weixin_39779106/article/details/78968982#1将异方差偶然不确定性和认知不确定性相结合))
+[CSDN:What Uncertainties Do We Need in Bayesian Deep Learning for Computer Vision? 计算机视觉用于贝叶斯深度学习的不确定性]([https://blog.csdn.net/weixin_39779106/article/details/78968982#1%E5%B0%86%E5%BC%82%E6%96%B9%E5%B7%AE%E5%81%B6%E7%84%B6%E4%B8%8D%E7%A1%AE%E5%AE%9A%E6%80%A7%E5%92%8C%E8%AE%A4%E7%9F%A5%E4%B8%8D%E7%A1%AE%E5%AE%9A%E6%80%A7%E7%9B%B8%E7%BB%93%E5%90%88](https://blog.csdn.net/weixin_39779106/article/details/78968982#1将异方差偶然不确定性和认知不确定性相结合)
 
 [Uncertainties in Bayesian Deep Learning - kid丶的文章 - 知乎]( https://zhuanlan.zhihu.com/p/100998668)
 
