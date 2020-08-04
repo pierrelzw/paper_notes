@@ -43,7 +43,7 @@
 
 比如下图的例子,（d）(e)分别是数据不确定度和模型不确定度，越亮代表uncertainty越高。
 
-![img](https://camo.githubusercontent.com/0900f774997bc2cccbac537a7c14ea568232256d/68747470733a2f2f747661312e73696e61696d672e636e2f6c617267652f30303753385a496c6c793167683937767732796e646a33313532306b61646d322e6a7067)
+<img src="https://camo.githubusercontent.com/0900f774997bc2cccbac537a7c14ea568232256d/68747470733a2f2f747661312e73696e61696d672e636e2f6c617267652f30303753385a496c6c793167683937767732796e646a33313532306b61646d322e6a7067" alt="img" style="zoom:50%;" />
 
 可以看出：
 
@@ -57,7 +57,7 @@
 
 
 
-Epistemic uncertainty可以通过增加数据解决，比如下图：只有一个data point的时候，符合要求的模型有很多种可能，uncertainty很高。当数据点增加，模型逐渐确定，uncertainty减小。![image-20200731000751967](https://i.loli.net/2020/07/31/qvC8ea2KASTyzkM.png)
+Epistemic uncertainty可以通过增加数据解决，比如下图：只有一个data point的时候，符合要求的模型有很多种可能，uncertainty很高。当数据点增加，模型逐渐确定，uncertainty减小。<img src="https://i.loli.net/2020/07/31/qvC8ea2KASTyzkM.png" alt="image-20200731000751967" style="zoom:50%;" />
 
 
 
@@ -92,7 +92,7 @@ Aleatoric uncertainty 其实就是训练数据中的噪声，来源于数据收�
 
 1. Epistemic uncertainty建模
 
-   <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghevtp5s25j30z60ckq4p.jpg" alt="image-20200804105920734" style="zoom:50%;" />
+   <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghevtp5s25j30z60ckq4p.jpg" alt="image-20200804105920734" style="zoom:40%;" />
 
    对Epistemic uncertainty 建模的方式有如上几种，这里主要讲Monte-Carlo 和 Ensemble。
 
@@ -114,11 +114,11 @@ Aleatoric uncertainty 其实就是训练数据中的噪声，来源于数据收�
 
 2. Aleatoric uncertainty建模
 
-​								<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghevtqj025j30yy08u3zv.jpg" alt="image-20200804104534162" style="zoom:50%;" />
+​								<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghevtqj025j30yy08u3zv.jpg" alt="image-20200804104534162" style="zoom:30%;" />
 
 
 
-<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghevtr1s5yj30to0h2q5n.jpg" alt="image-20200804104444797" style="zoom:50%;" />
+<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghevtr1s5yj30to0h2q5n.jpg" alt="image-20200804104444797" style="zoom:30%;" />
 
 
 
