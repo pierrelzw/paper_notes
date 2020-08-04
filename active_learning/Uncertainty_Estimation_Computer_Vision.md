@@ -51,12 +51,8 @@
 Epistemic uncertainty可以通过增加数据解决，比如下图：只有一个data point的时候，符合要求的模型有很多种可能，uncertainty很高。当数据点增加，模型逐渐确定，uncertainty减小。
 <img src="https://i.loli.net/2020/07/31/qvC8ea2KASTyzkM.png" alt="image-20200731000751967" style="zoom:40%;" />
 Aleatoric uncertainty 其实就是训练数据中的噪声，来源于数据收集/标注过程。这些噪声是随机的，而且是固定的。噪声越多，数据的不确定度越大。它可以被测量，但是无法通过增加数据减小。
-
 - Heteroscedastic Aleatoric Uncertainty # TODO
-
 - Homoscedastic Aleatoric Uncertainty # TODO
-
-  
 
 **Related work**
 
@@ -98,7 +94,7 @@ Aleatoric uncertainty 其实就是训练数据中的噪声，来源于数据收�
 <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghevtqj025j30yy08u3zv.jpg" alt="image-20200804104534162" style="zoom:50%;" />
 <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghevtr1s5yj30to0h2q5n.jpg" alt="image-20200804104444797" style="zoom:50%;" />
 有三种方式可以建模Aleatoric Uncertainty，这里介绍Probabilistic Deep Learning。从表格可以看出，其实就是在原始任务基础上，增加probability prediction，这个probability可用于measure uncertainty。
-比如分类任务原来只输出类别，现在还需要输出probability。为了准确表示uncertainty，这里的probability要求[calibrated probability](https://scikit-learn.org/stable/modules/calibration.html)，不能直接用用softmax输出的score。由此，对目标检测任务也有[Probabilistic Object Detection](https://arxiv.org/abs/1811.10800)。
+比如分类任务原来只输出类别，现在还需要输出probability。为了准确表示uncertainty，这里的probability要求[calibrated probability](https://scikit-learn.org/stable/modules/calibration.html)，不能直接用用softmax输出的score。对目标检测任务也有[Probabilistic Object Detection](https://arxiv.org/abs/1811.10800)，这方面的研究工作有[Gaussian YOLOv3](https://arxiv.org/abs/1904.04620)、[Bayesian Object Detection](https://arxiv.org/abs/1903.03838)以及 #TODO
 
 ## 4. 总结
 uncertainty estimation是深度学习在实际使用时非常重要的一环。因为我们不仅希望AI输出预测结果，还想知道AI对结果的确定度，综合两者才能更好地使用DL模型。
