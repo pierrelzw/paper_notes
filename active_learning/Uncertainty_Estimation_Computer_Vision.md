@@ -35,7 +35,7 @@
 
 ## uncertainty 是什么？
 
-![image-20200804103346322](/Users/lizhiwei/Documents/paper_notes/active_learning/image-20200804103346322.png)
+![image-20200804103346322](https://tva1.sinaimg.cn/large/007S8ZIlly1ghevtq0n46j30h9081my3.jpg)
 
 参考NIPS2017年的论文 [What Uncertainties Do We Need in Bayesian Deep Learning for Computer Vision? ](https://papers.nips.cc/paper/7141-what-uncertainties-do-we-need-in-bayesian-deep-learning-for-computer-vision.pdf) ，Gal阐述了两种uncertainty：Aleatoric uncertainty(i.e. data uncertainty) 和 Epistemic uncertainty(i.e. model uncertainty)，即随机不确定度(也称数据不确定度)，和认知不确定度(也称模型不确定度)。
 
@@ -90,7 +90,7 @@ Aleatoric uncertainty 其实就是训练数据中的噪声，来源于数据收�
 
 1. Epistemic uncertainty建模
 
-   <img src="/Users/lizhiwei/Documents/paper_notes/active_learning/image-20200804105920734.png" alt="image-20200804105920734" style="zoom:50%;" />
+   <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghevtp5s25j30z60ckq4p.jpg" alt="image-20200804105920734" style="zoom:50%;" />
 
    对Epistemic uncertainty 建模的方式有如上几种，这里主要讲Monte-Carlo 和 Ensemble。
 
@@ -112,11 +112,11 @@ Aleatoric uncertainty 其实就是训练数据中的噪声，来源于数据收�
 
 2. Aleatoric uncertainty建模
 
-​								<img src="/Users/lizhiwei/Documents/paper_notes/active_learning/image-20200804104534162.png" alt="image-20200804104534162" style="zoom:50%;" />
+​								<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghevtqj025j30yy08u3zv.jpg" alt="image-20200804104534162" style="zoom:50%;" />
 
 
 
-<img src="/Users/lizhiwei/Documents/paper_notes/active_learning/image-20200804104444797.png" alt="image-20200804104444797" style="zoom:50%;" />
+<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghevtr1s5yj30to0h2q5n.jpg" alt="image-20200804104444797" style="zoom:50%;" />
 
 
 
