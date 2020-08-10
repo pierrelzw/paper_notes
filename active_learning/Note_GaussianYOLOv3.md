@@ -16,13 +16,13 @@ YOLOv3 bbox输出回顾：
 
   
 
-<img src="/Users/lizhiwei/Documents/paper_notes/active_learning/image-20200805193456177.png" alt="image-20200805193456177" style="zoom:40%;" />
+<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghg6e9cdi2j30o80nk77n.jpg" alt="image-20200805193456177" style="zoom:40%;" />
 
 ## what？
 
 ### Gaussian modeling
 
-<img src="/Users/lizhiwei/Documents/paper_notes/active_learning/image-20200805153518552.png" alt="image-20200805153518552" style="zoom:50%;" />
+<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghg6e9y3thj30no0eydhy.jpg" alt="image-20200805153518552" style="zoom:50%;" />
 
 在bbox regression中，总共需要回归4个变量($t_x, t_y, t_w, t_h$)。我们可以这4个变量的gaussian model来计算每个bbox的uncertainty。具体来说，输入x，对每个变量y，我们有
 $$
@@ -50,7 +50,7 @@ $$
 
 其中均值就是最后bbox的坐标，方差就是bbox的uncertainty。需要注意的是，$t_x, t_y$必须是bbox的中心，所以我们用sigmoid function来归一化，对$t_x, t_y, t_w, t_h$的variance我们也用sigmoid处理（归一化到0-1之间方便建模uncertainty，如何计算最后的uncertainty？？）。但是由于$t_w, t_h$是通过prior box + offset得到的，我们不用sigmoid处理他们（因为他们可正可负）。
 
-<img src="/Users/lizhiwei/Documents/paper_notes/active_learning/image-20200805160928497.png" alt="image-20200805160928497" style="zoom:50%;" />
+<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghg6e91bn6j31ay0kaaed.jpg" alt="image-20200805160928497" style="zoom:50%;" />
 
 计算量
 
