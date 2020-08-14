@@ -26,40 +26,64 @@
 
 ## Epistemic Uncertainty
 
+- 
+  
 - Dropout variational inference
-  - classification
+  
+- **classification**
+  $$
+  p(x) = \frac{1}{1+e^{-x}} = \frac{e^x}{e^x+1}
+  $$
+  
+  $$
+  \mathcal{L}(\theta, p) = -\frac{1}{N}\sum_{i=1}^{N}{\log{p(y_i|f^{\widehat{W_i}}(x_i))}} + \frac{1-p}{2N}||\theta||^2
+  $$
+  
 
-    $$p(x) = \frac{1}{1+e^{-x}} = \frac{e^x}{e^x+1}$$
+  其中，N是数据点数，p是dropout probability， $\widehat{W}_i \sim q_{\theta}^*(W)$，其中，$\theta$是simple distribution's parameters to be optim
 
-    
+  
 
-    $$\mathcal{L}(\theta, p) = -\frac{1}{N}\sum_{i=1}^{N}{\log{p(y_i|f^{\widehat{W_i}}(x_i))}} + \frac{1-p}{2N}||\theta||^2$$
+  Epidemic Uncertainty approximation：
 
-    其中，N是数据点数，p是dropout probability， $\widehat{W}_i \sim q_{\theta}^*(W)$，其中，$\theta$是simple distribution's parameters to be optim
+  $$
+  p(y=c|x,X,Y)\approx\frac{1}{T}\sum_{t=1}^{T}Softmax(f^{\widehat{W}_i}(x))
+  $$
+  
 
-    
+  
 
-    Epidemic Uncertainty approximation：
+  The uncertainty of probability vector **p** : 
+  $$
+  H(p) = -\sum_{c=1}^{C}p_c\log(p_c)
+  $$
+  
 
-    $$p(y=c|x,X,Y)\approx\frac{1}{T}\sum_{t=1}^{T}Softmax(f^{\widehat{W}_i}(x))$$
+- **Regression**
+  $$
+  -\log{p(y_i|f^{\widehat{W_i}}(x_i))} \propto \frac{1}{2\sigma^2}||y_i-f^{\widehat{W_i}}(x_i)||^2 + \frac{1}{2}\log{\sigma^2}
+  $$
+  
 
-    The uncertainty of probability vector **p** : $H(p) = -\sum_{c=1}^{C}p_c\log(p_c)$
+  Epidemic Uncertainty:
+  $$
+  Var(y)\approx\sigma^2+\frac{1}{T}\sum_{t=1}^{T}f^{\widehat{W_t}}(x)^Tf^{\widehat{W_t}}(x_t) - {E(y)^T}{E(y)}
+  $$
+  
 
-  - regression
+   
 
-    $$-\log{p(y_i|f^{\widehat{W_i}}(x_i))} \propto \frac{1}{2\sigma^2}||y_i-f^{\widehat{W_i}}(x_i)||^2 + \frac{1}{2}\log{\sigma^2}$$
-
-    Epidemic Uncertainty:
-
-    $$Var(y)\approx\sigma^2+\frac{1}{T}\sum_{t=1}^{T}f^{\widehat{W_t}}(x)^Tf^{\widehat{W_t}}(x_t) - {E(y)^T}{E(y)}$$ 
-
-    approximationn predictive mean: $E(y) = \frac{1}{T}\sum_{t=1}^{T}f^{\widehat{W}_t}(x)$
-
-    $\sigma^2$ : the amount of noise inherent in the data 
+  approximationn predictive mean: 
+  $$
+  E(y) = \frac{1}{T}\sum_{t=1}^{T}f^{\widehat{W}_t}(x)
+  $$
+  $\sigma^2$ : the amount of noise inherent in the data 
 
   
 
 ##  Aleatoric Uncertainty
+
+对回归任务，有两种随机不确定度，一种是同质的，一种是异质的。
 
 - Homoscedastic Aleatoric Uncertainty
 

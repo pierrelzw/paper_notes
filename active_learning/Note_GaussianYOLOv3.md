@@ -189,7 +189,7 @@ class YOLOLayer(nn.Module):
 
 ### GT encode
 
-
+ TODO
 
 ### Loss
 
@@ -225,5 +225,4 @@ class YOLOLayer(nn.Module):
         return torch.exp(- (val - mean) ** 2.0 / var / 2.0) / torch.sqrt(2.0 * np.pi * var)
 ```
 
-可以看出，模
-
+在回归bbox($t_x, t_y, t_w, t_h$)时，YOLOv3使用MSE loss。在Gaussian YOLOv3中，由于输出在x,y,w,h基础上新增了他们的uncertainty，loss也相应改变，这里使用NLL loss， 公式(5)。其中$N(x_{ijk}^G|\mu_{t_x}(x_{ijk}), {\sum}_{t_x}(x_{ijk}))$是高斯分布的概率密度函数，对应代码参考上面最后的`_gaussian_dist_pdf`
