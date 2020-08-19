@@ -1,20 +1,17 @@
 # Note_Gaussian YOLOv3
-
+[TOC]
 ## why ？
-
 YOLOv3的输出包含3部分：objectness info, category info, bbox。objectness和category都是通过softmax/sigmoid classification得到的，有对应score可以用来建模uncertainty(值得指出的是，classification score不能直接用来作为uncertainty，需要calibration或者用其他方法，比如熵来建模)，但是bbox是regression得到的，没有对应的score来反应reliability of bbox。
 
-YOLOv3 bbox输出回顾：
-
+## what？
+### YOLOv3 bbox输出回顾
 - 下图中蓝色框是预测结果，虚线框为anchor box，实线网格是feature map
 - 最终的bbox输出为$b_x, b_y, b_w, b_h$,  而模型实际回归的是$t_x, t_y, t_w, t_h$， 计算loss时，也会把gt_box映射到$t_x^{gt}, t_y^{gt}, t_w^{gt}, t_h^{gt}$
 - $(c_x, c_y )$是当前grid左上角角点的坐标，$\sigma(t_x), \sigma(t_y)$是prior box中心点相对于左上角角点的坐标
 - $p_w, p_h$ 是prior box的宽和高
 
-
 <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghg6e9cdi2j30o80nk77n.jpg" alt="image-20200805193456177" style="zoom:40%;" />
 
-## what？
 
 ### Gaussian modeling
 
@@ -49,7 +46,7 @@ $$
 
 计算量
 
-yolov3：99x10^9 Flops, gaussian yolov3 : 99.04x10^9 Flops 增加了4%的计算量
+yolov3：99x10^9  Flops, gaussian yolov3 : 99.04x10^9  Flops 增加了4%的计算量
 
 
 
@@ -71,7 +68,7 @@ $L_x$是x的NLL loss，对$y,w,h$同样可以计算$L_y,L_w,L_h$。其中，$N(x
 
 ### Code
 
-### model output
+#### model output
 
 ```python
 class YOLOLayer(nn.Module):
@@ -187,11 +184,11 @@ class YOLOLayer(nn.Module):
 
 
 
-### GT encode
+#### GT encode
 
  TODO
 
-### Loss
+#### Loss
 
 ```python
 class YOLOLayer(nn.Module):
@@ -225,4 +222,4 @@ class YOLOLayer(nn.Module):
         return torch.exp(- (val - mean) ** 2.0 / var / 2.0) / torch.sqrt(2.0 * np.pi * var)
 ```
 
-在回归bbox($t_x, t_y, t_w, t_h$)时，YOLOv3使用MSE loss。在Gaussian YOLOv3中，由于输出在x,y,w,h基础上新增了他们的uncertainty，loss也相应改变，这里使用NLL loss， 公式(5)。其中$N(x_{ijk}^G|\mu_{t_x}(x_{ijk}), {\sum}_{t_x}(x_{ijk}))$是高斯分布的概率密度函数，对应代码参考上面最后的`_gaussian_dist_pdf`
+在回归bbox($t_x, t_y, t_w, t_h$)时，YOLOv3使用MSE loss。在Gaussian YOLOv3中，由于输出在x,y,w,h基础上新增了他们的uncertainty，loss也相应改变，这里使用NLL loss。参考前面的公式，其中$N(x_{ijk}^G|\mu_{t_x}(x_{ijk}), {\sum}_{t_x}(x_{ijk}))$是高斯分布的概率密度函数，对应代码参考上面最后的`_gaussian_dist_pdf`
