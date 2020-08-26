@@ -21,7 +21,7 @@
       $$
       \hat{p}_{ij}^k = \frac{1}{(2r+1)^2}\sum_{i=m-r}^{m+r}\sum_{j=n-r}^{n+r}p_{ij}^k
       $$
-      其中，r是neighborhood的半径
+      其中，**r是neighborhood的半径**
 
     - 此时（m,n）处对第k个proba matrix的score为：
       $$
@@ -32,21 +32,22 @@
       \mathbb{H}(z) = -z\log{z} - (1-z)\log{(1-z)}
       $$
       
+
 在做对比实验时，我们也采取MCdropout方法，此时，对2类entropy，
-      
-      $s_{mn}^k = \mathbb{H}(\hat{p}_{mn}^k)$ , 
-      
-      $s_{mn}^k = \mathbb{H}(\hat{p}_{mn}^k)  - \frac{1}{T}\sum_{t=1}^{T}\mathbb{H}(p_{mn}^k|w,q)$
-  
-      其中，q是dropout distribution。与我们不同的是，我们计算局部区域的divergence，MCdropout则是通过T次inference，计算同一位置的divergence。
-  
-    - 最后的在**S**上的score为5个proba matrix之和：
-  $$
-      s_{mn} = \sum_{k=1...K_{\Theta}}s_{mn}^k
-  $$
-    
+   $s_{mn}^k = \mathbb{H}(\hat{p}_{mn}^k)$ , 
+
+  $s_{mn}^k = \mathbb{H}(\hat{p}_{mn}^k)  - \frac{1}{T}\sum_{t=1}^{T}\mathbb{H}(p_{mn}^k|w,q)$
+
+  其中，q是dropout distribution。与我们不同的是，我们计算局部区域的divergence，MCdropout则是通过T次inference，计算同一位置的divergence。
+
+- 最后的在**S**上的score为5个proba matrix之和：
+
+$$
+s_{mn} = \sum_{k=1...K_{\Theta}}s_{mn}^k
+$$
+
 - 从（3）可以看出，**<u>本文定义score为平均值的entropy减去entropy的平均值</u>**。事实证明，$s_{mn}^k$将会接近0，如果某处的预测结果和它周围很相近。否则，则会很大。
-    
+  
     - 最后$s_{mn}$会接近于0，如果在该位置，各个resolution下的预测一致的话
     
     - aggregating score
@@ -57,17 +58,17 @@
   $$
       z = \frac{1}{D_p}\sum_i{s_{max}^i}
   $$
-    
+  
 - selecting  images
-    
+  
   - 对时序无关的图片集，按照score排序，挑出最高score的图标注
     
       - 对时序相关的图片集，比如video，则要考虑连续帧之间的相似性和冗余
-    
+      
         - 如果$t^{th}$帧被选中了，则$t^{th} - t^{th}+\Delta{t_1}$帧，在**当前activelearning迭代**中不会被选中
-    
+      
         - 如果$t^{th}$帧被选中了，则$t^{th} - t^{th}+\Delta{t_2}$帧，在**下一个active learning迭代**中不会被选中
-    
+      
           其中$\Delta{t_1} > \Delta{t_2}$
 
 ## 简介
