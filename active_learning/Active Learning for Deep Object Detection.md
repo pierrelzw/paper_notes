@@ -8,7 +8,7 @@
 
 对一些特定的任务，OoD检测也很重要。
 
-本文提供的主动学习方法，适应于几乎所有的目标检测算法，因为它只要求softmax分类结果(classification score distribution)。并且，其中的
+本文提供的主动学习方法，适应于几乎所有的目标检测算法，因为它只要求softmax分类结果(classification score distribution)。
 
 
 
