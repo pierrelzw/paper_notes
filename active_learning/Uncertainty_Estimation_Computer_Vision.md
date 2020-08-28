@@ -7,7 +7,7 @@
 
 <img src="https://i.loli.net/2020/07/31/HtbKDj9i62JCMPA.png" alt="image-20200730223541402" style="zoom:30%;" />
 
-训练好的神经网络（NN）模型，本质是一个拥有大量确定参数的函数（只有加法和乘法），不管你给什么输入，它都能给你一个输出。这会导致两种我们不愿意看到的意外情况：
+训练好的神经网络（NN）模型，本质是一个拥有大量确定参数的函数，不管你给什么输入，它都能给你一个输出。这会导致两种我们不愿意看到的意外情况：
 
 - 1）对明明错误的预测结果，模型输出的置信度却很高
 - 2）对没有见过的输入(OoD，Out-of-ditribution)，比如给一个识别猫狗的模型输入一张桌子图片，模型一定会输出：”这是猫“ or “这是狗”。
@@ -73,11 +73,11 @@ Aleatoric uncertainty 其实就是训练数据中的噪声，来源于数据收�
 
 ## 3. 怎么计算uncertainty?
 
-接下来，我们来讲讲如何建模计算uncertainty。
+接下来，我们来讲讲如何建模计算uncertainty，由于调研时间有限可能有疏漏，欢迎留言补充。
 
 1. Epistemic uncertainty建模
    <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghevtp5s25j30z60ckq4p.jpg" alt="image-20200804105920734" style="zoom:40%;" />
-   对Epistemic uncertainty 建模的方式有如上几种，这里主要讲Monte-Carlo 和 Ensemble。
+   [JunMa](https://www.zhihu.com/people/JunMa11)帮忙总结了几种对Epistemic uncertainty 建模的方式，如上图，也欢迎补充其他建模方法。。本文主要讲Monte-Carlo 和 Ensemble。
    对一个随机分布，不确定性建模的方法有很多，标准差、方差、风险值（VaR）和熵都是合适的度量。在深度学习中，建模不确定度需要用到Bayesian DeepLearning。从Bayesian的角度，深度学习训练的本质是求一个posterior distribution  $P(W|D)$，其中W是参数，D是数据。根据bayes theorem，我们有
    $$ P(W|D) = \frac{P(D|W)P(W)}{P(D)}$$
    但是这个公式没法用，因为P(D)理论上代表的是真实的数据分布 ，无法获取；~~P(W）在神经网络中也是不存在的，因为模型训练好以后，所有参数都是确定的数，而不是distribution，所以没法计算P(W)~~。于是我们想到bayes theorem的另一个公式：
@@ -91,17 +91,17 @@ Aleatoric uncertainty 其实就是训练数据中的噪声，来源于数据收�
    从理论层面，MC-Dropout是variantianl inference(BNN的重要概念之一)的近似。具体来说#TODO
 
 2. Aleatoric uncertainty建模
-<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghevtqj025j30yy08u3zv.jpg" alt="image-20200804104534162" style="zoom:50%;" />
-<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghevtr1s5yj30to0h2q5n.jpg" alt="image-20200804104444797" style="zoom:50%;" />
-有三种方式可以建模Aleatoric Uncertainty，这里介绍Probabilistic Deep Learning。从表格可以看出，其实就是在原始任务基础上，增加probability prediction，这个probability可用于measure uncertainty。
-比如分类任务原来只输出类别，现在还需要输出probability。为了准确表示uncertainty，这里的probability要求[calibrated probability](https://scikit-learn.org/stable/modules/calibration.html)，不能直接用用softmax输出的score。对目标检测任务也有[Probabilistic Object Detection](https://arxiv.org/abs/1811.10800)，这方面的研究工作有[Gaussian YOLOv3](https://arxiv.org/abs/1904.04620)、[Bayesian Object Detection](https://arxiv.org/abs/1903.03838)以及 #TODO
+  <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghevtqj025j30yy08u3zv.jpg" alt="image-20200804104534162" style="zoom:50%;" />
+  <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghevtr1s5yj30to0h2q5n.jpg" alt="image-20200804104444797" style="zoom:50%;" />
+  [JunMa](https://www.zhihu.com/people/JunMa11)帮忙总结了三种Aleatoric Uncertainty的建模方法，这里介绍Probabilistic Deep Learning。从表格可以看出，其实就是在原始任务基础上，增加probability prediction，这个probability可用于measure uncertainty。
+  比如分类任务原来只输出类别，现在还需要输出probability。为了准确表示uncertainty，这里的probability要求[calibrated probability](https://scikit-learn.org/stable/modules/calibration.html)，不能直接用用softmax输出的score。对目标检测任务也有[Probabilistic Object Detection](https://arxiv.org/abs/1811.10800)，这方面的研究工作有[Gaussian YOLOv3](https://arxiv.org/abs/1904.04620)、[Bayesian Object Detection](https://arxiv.org/abs/1903.03838)以及 #TODO
 
 ## 4. 总结
 uncertainty estimation是深度学习在实际使用时非常重要的一环。因为我们不仅希望AI输出预测结果，还想知道AI对结果的确定度，综合两者才能更好地使用DL模型。
 
 在DL领域，主要有两种不确定度，Aleatoric Uncertainty和Epistemic Uncertainty，前者可以认为是数据本身的噪声，也被称之为data uncertainty，后者主要源于模型认知能力，可通过增加训练数据解决。
 
-为了建模计算Uncertainty，我们介绍了Monte-Carlo DropOut/DropConnect、Ensemble方法来建模Epistemic uncertainty，也介绍了Probabilistic DeepLearning用于计算(预测)Aleatoric Uncertainty。更多的建模方法，可参考对应参考文献。
+为了建模计算Uncertainty，我们介绍了Monte-Carlo DropOut/DropConnect、Ensemble方法来建模Epistemic uncertainty，也介绍了Probabilistic DeepLearning用于计算(预测)Aleatoric Uncertainty。更多的建模方法有待进一步研究和比较，可参考文章提到的文章，也欢迎留言补充，谢谢。
 
 ## 5. 参考文献
 [201909-医学图像分析中的Uncertainty学习小结](https://zhuanlan.zhihu.com/p/87955728) 推荐\*\*\*\*\*\*

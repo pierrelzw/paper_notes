@@ -1,6 +1,6 @@
 # Data Distillation: Towards Omni-Supervised Learning
 
-<img src="/Users/lizhiwei/Documents/paper_notes/active_learning/image-20200824121353651.png" alt="image-20200824121353651" style="zoom:33%;" />
+<img src="./image-20200824121353651.png" alt="image-20200824121353651" style="zoom:33%;" />
 
 ## 关键概念
 

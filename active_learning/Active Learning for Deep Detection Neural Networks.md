@@ -32,15 +32,14 @@
       \mathbb{H}(z) = -z\log{z} - (1-z)\log{(1-z)}
       $$
       
-
-在做对比实验时，我们也采取MCdropout方法，此时，对2类entropy，
-   $s_{mn}^k = \mathbb{H}(\hat{p}_{mn}^k)$ , 
-
-  $s_{mn}^k = \mathbb{H}(\hat{p}_{mn}^k)  - \frac{1}{T}\sum_{t=1}^{T}\mathbb{H}(p_{mn}^k|w,q)$
-
-  其中，q是dropout distribution。与我们不同的是，我们计算局部区域的divergence，MCdropout则是通过T次inference，计算同一位置的divergence。
-
-- 最后的在**S**上的score为5个proba matrix之和：
+      在做对比实验时，我们也采取MCdropout方法，此时，对2类entropy，
+         $s_{mn}^k = \mathbb{H}(\hat{p}_{mn}^k)$ , 
+      
+        $s_{mn}^k = \mathbb{H}(\hat{p}_{mn}^k)  - \frac{1}{T}\sum_{t=1}^{T}\mathbb{H}(p_{mn}^k|w,q)$
+      
+        其中，q是dropout distribution。与我们不同的是，我们计算局部区域的divergence，MCdropout则是通过T次inference，计算同一位置的divergence。
+      
+    - 最后的在**S**上的score为5个proba matrix之和：
 
 $$
 s_{mn} = \sum_{k=1...K_{\Theta}}s_{mn}^k
@@ -52,7 +51,7 @@ $$
     
     - aggregating score
 
-      <img src="/Users/lizhiwei/Documents/paper_notes/active_learning/image-20200825135219676.png" alt="image-20200825135219676" style="zoom:33%;" />
+      <img src="./image-20200825135219676.png" alt="image-20200825135219676" style="zoom:33%;" />
 
       我们最后希望有一个image-level的score，用于在active learning中对图像进行重要性排序，重要的图片，需要优先标注。如上图所示，我们**把图片分为互不重叠的$D_p$块区域**，定义image-level score 为z，则：
   $$
@@ -73,7 +72,7 @@ $$
 
 ## 简介
 
-![image-20200825113126210](/Users/lizhiwei/Documents/paper_notes/active_learning/image-20200825113126210.png)
+![image-20200825113126210](./image-20200825113126210.png)
 
 - 假设
 

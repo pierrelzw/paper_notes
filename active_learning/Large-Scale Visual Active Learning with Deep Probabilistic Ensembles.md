@@ -42,7 +42,7 @@
 
 - 实验结果
 
-  <img src="/Users/lizhiwei/Documents/paper_notes/active_learning/image-20200820175737034.png" alt="image-20200820175737034" style="zoom:33%;" />
+  <img src="./image-20200820175737034.png" alt="image-20200820175737034" style="zoom:33%;" />
 
   在CIFAR-10上的实验结果：
 

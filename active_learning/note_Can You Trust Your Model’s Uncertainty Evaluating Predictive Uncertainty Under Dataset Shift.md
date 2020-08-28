@@ -22,6 +22,7 @@
 
 
 
-<img src="/Users/lizhiwei/Documents/notes.papers/active_learning/image-20200729111022442.png" alt="image-20200729111022442" style="zoom:50%;" />
+<img src="./image-20200729111022442.png" alt="image-20200729111022442" style="zoom:50%;" />
 
-<img src="/Users/lizhiwei/Documents/notes.papers/active_learning/image-20200729111107470.png" alt="image-20200729111107470" style="zoom:50%;" />
+<img src="./image-20200729111107470.png" alt="image-20200729111107470" style="zoom:50%;" />
+
